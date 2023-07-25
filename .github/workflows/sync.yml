@@ -12,9 +12,6 @@ concurrency:
   group: ${{ github.ref_name }}-sync
   cancel-in-progress: true
 
-permissions:
-  contents: read
-
 jobs:
   # This job sync the labels across the various repos
   labels-sync:
