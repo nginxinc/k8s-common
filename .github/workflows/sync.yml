@@ -27,6 +27,7 @@ jobs:
           manifest: labels.yml
           repository: |
             nginxinc/kubernetes-ingress
+            nginxinc/kic-test-containers
             nginxinc/nginx-ingress-helm-operator
             nginxinc/nginx-prometheus-exporter
             nginxinc/nginx-plus-go-client
