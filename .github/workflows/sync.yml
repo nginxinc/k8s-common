@@ -34,3 +34,12 @@ jobs:
             nginxinc/nginx-asg-sync
           token: ${{ secrets.NGINX_PAT }}
           prune: true
+
+  sync-repo:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - run: gh repo sync nginx-bot/certified-operators
+        env:
+          GITHUB_TOKEN: ${{ secrets.NGINX_PAT }}
