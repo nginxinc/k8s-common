@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://pkgs.nginx.com/plus/debian
+Suites: bullseye
+Components: nginx-plus
+Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
