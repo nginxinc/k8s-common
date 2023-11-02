@@ -1,5 +1,8 @@
+# Plus repo for debian 11 (bullseye).
+# The VERSION variable needs to be replaced with the version of NGINX Plus you want to install, i.e. R30, or removed.
+
 Types: deb
-URIs: https://pkgs.nginx.com/plus/debian
+URIs: https://pkgs.nginx.com/plus/%VERSION%/debian
 Suites: bullseye
 Components: nginx-plus
 Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
