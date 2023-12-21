@@ -35,11 +35,13 @@ jobs:
           token: ${{ secrets.NGINX_PAT }}
           prune: true
 
-  sync-repo:
+  sync-repos:
     runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
-      - run: gh repo sync nginx-bot/certified-operators
+      - run: |
+          gh repo sync nginx-bot/certified-operators
+          gh repo sync nginxinc/winget-pkgs
         env:
           GITHUB_TOKEN: ${{ secrets.NGINX_PAT }}
