@@ -10,4 +10,6 @@ allow_licenses:
   - OpenSSL
   - Python-2.0
   - X11
+allow-dependencies-licenses:
+  - pkg:githubactions/fossas/fossa-action
 comment-summary-in-pr: on-failure
