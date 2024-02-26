@@ -12,4 +12,5 @@ allow_licenses:
   - X11
 allow-dependencies-licenses:
   - pkg:githubactions/fossas/fossa-action
+  - pkg:golang/github.com/shoenig/go-m1cpu
 comment-summary-in-pr: on-failure
