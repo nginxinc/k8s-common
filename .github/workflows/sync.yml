@@ -32,6 +32,7 @@ jobs:
             nginxinc/nginx-prometheus-exporter
             nginxinc/nginx-plus-go-client
             nginxinc/nginx-asg-sync
+            nginxinc/telemetry-exporter
           token: ${{ secrets.NGINX_PAT }}
           prune: true
 
