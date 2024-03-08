@@ -85,3 +85,6 @@
 - color: ffffff
   description: An issue that does not need to be fixed
   name: wontfix
+- color: D9F11E
+  description: An issue that was triaged and it is ready to be refined
+  name: ready for refinement
