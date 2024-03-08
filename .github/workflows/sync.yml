@@ -44,5 +44,6 @@ jobs:
       - run: |
           gh repo sync nginx-bot/certified-operators
           gh repo sync nginxinc/winget-pkgs
+          gh repo sync nginxinc/kubernetes-json-schema
         env:
           GITHUB_TOKEN: ${{ secrets.NGINX_PAT }}
