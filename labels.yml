@@ -88,3 +88,6 @@
 - color: D9F11E
   description: An issue that was triaged and it is ready to be refined
   name: ready for refinement
+- color: E2F7ED
+  description: Issues or PRs opened by an external contributor
+  name: community
