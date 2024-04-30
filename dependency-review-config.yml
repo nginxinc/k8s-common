@@ -12,7 +12,7 @@ allow_licenses:
   - X11
   - BSD-2-Clause AND BSD-3-Clause
 allow-dependencies-licenses:
-  - pkg:githubactions/fossas/fossa-action
-  - pkg:golang/github.com/shoenig/go-m1cpu
-  - pkg:pypi/pytest-metadata
+  - 'pkg:githubactions/fossas/fossa-action'
+  - 'pkg:golang/github.com/shoenig/go-m1cpu'
+  - 'pkg:pypi/pytest-metadata'
 comment-summary-in-pr: on-failure
