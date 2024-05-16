@@ -2,7 +2,8 @@
 # The VERSION variable needs to be replaced with the version of NGINX Plus you want to install, i.e. R30, or removed.
 
 Types: deb
-URIs: https://pkgs-test.nginx.com/plus/%VERSION%/debian
+# URIs: https://pkgs-test.nginx.com/plus/%VERSION%/debian
+URIs: https://pkgs-test.nginx.com/plus/R32/debian
 Suites: bullseye
 Components: nginx-plus
 Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
