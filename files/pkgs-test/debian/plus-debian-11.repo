@@ -4,6 +4,7 @@
 Types: deb
 # URIs: https://pkgs-test.nginx.com/plus/%VERSION%/debian
 URIs: https://pkgs-test.nginx.com/plus/R32/debian
+# URIs: https://artifactory.f5net.com:443/artifactory/f5-waf_on_nginx-debian/nginx-plus/bullseye/
 Suites: bullseye
 Components: nginx-plus
-Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
+# Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
