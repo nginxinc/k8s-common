@@ -1,0 +1,4 @@
+Acquire::https::pkgs-test.nginx.com::Verify-Peer "true";
+Acquire::https::pkgs-test.nginx.com::Verify-Host "true";
+Acquire::https::pkgs-test.nginx.com::SslCert     "/etc/ssl/nginx/nginx-repo.crt";
+Acquire::https::pkgs-test.nginx.com::SslKey      "/etc/ssl/nginx/nginx-repo.key";
