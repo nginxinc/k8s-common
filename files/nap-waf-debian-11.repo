@@ -1,11 +1,14 @@
 # NAP WAF repos for debian 11 (bullseye).
 # The VERSION variable needs to be replaced with the version of NGINX Plus you want to install, i.e. R30, or removed.
 
-Types: deb
-URIs: https://pkgs.nginx.com/app-protect/%VERSION%/debian
-Suites: bullseye
-Components: nginx-plus
-Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
+# Types: deb
+# URIs: https://pkgs.nginx.com/app-protect/%VERSION%/debian
+# Suites: bullseye
+# Components: nginx-plus
+# Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
+
+cat /etc/apt/sources.list.d/nginx-app-protect.list
+deb [trusted=yes] https://artifactory.f5net.com/artifactory/f5-waf_on_nginx-debian bullseye fix-bewaf-closed-job-leak tensorflow security_updates nap-graphql socket_plugin`
 
 # security updates
 Types: deb
