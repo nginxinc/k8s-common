@@ -6,10 +6,3 @@ URIs: https://pkgs-test.nginx.com/app-protect-x-plus/debian
 Suites: bullseye
 Components: nginx-plus
 Signed-By: /usr/share/keyrings/nginx-archive-keyring.gpg
-
-# security updates
-Types: deb
-URIs: https://pkgs.nginx.com/app-protect-security-updates/debian
-Suites: bullseye
-Components: nginx-plus
-Signed-By: /usr/share/keyrings/app-protect-archive-keyring.gpg
