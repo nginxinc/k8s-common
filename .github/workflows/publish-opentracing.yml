@@ -28,6 +28,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install latest skopeo
+        uses: ./.github/actions/install-skopeo
+
       - name: Copy image tag
         run: |
           skopeo copy -a docker://ghcr.io/pdabelf5/nginx-opentracing:nginx-1.27.0 docker://ghcr.io/nginxinc/k8s-common:nginx-opentracing-1.27.0
