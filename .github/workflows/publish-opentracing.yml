@@ -3,7 +3,7 @@ name: "Publish opentracing images to GHCR"
 on:
   push:
     branches:
-      - master
+      - opentracing
 
 defaults:
   run:
