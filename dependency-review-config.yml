@@ -11,6 +11,7 @@ allow_licenses:
   - Python-2.0
   - X11
   - BSD-2-Clause AND BSD-3-Clause
+  - BSD-2-Clause AND ISC
 allow-dependencies-licenses:
   - 'pkg:githubactions/fossas/fossa-action'
   - 'pkg:golang/github.com/shoenig/go-m1cpu'
