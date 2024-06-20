@@ -91,3 +91,6 @@
 - color: E2F7ED
   description: Issues or PRs opened by an external contributor
   name: community
+- color: B52D2D
+  description: Cherry pick this PR into a release branch
+  name: needs cherry pick
