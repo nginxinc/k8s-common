@@ -1,0 +1,10 @@
+# Vim
+*.swp
+*.swo
+
+# GoLand IDE and VSCode
+.idea
+.vscode
+
+# MacOS Finder
+.DS_Store

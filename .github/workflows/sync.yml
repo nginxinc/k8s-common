@@ -6,7 +6,7 @@ on:
       - labels.yml
   schedule:
     - cron: "8 0 * * 1" # run every Monday at 00:08 UTC
-  workflow_dispatch:
+  workflow_dispatch: # yamllint disable-line rule:empty-values
 
 concurrency:
   group: ${{ github.ref_name }}-sync

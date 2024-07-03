@@ -3,7 +3,7 @@
 patch_debian() {
     echo "Patching Debian"
     apt-get update
-    apt-get upgrade -y 
+    apt-get upgrade -y
     rm -rf /var/lib/apt/lists/*
 }
 
