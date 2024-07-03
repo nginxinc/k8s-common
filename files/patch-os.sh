@@ -1,5 +1,7 @@
 #!/bin/sh
 
+skip_ssl=$1
+
 patch_debian() {
     echo "Patching Debian"
     apt-get update
@@ -22,7 +24,14 @@ patch_ubi_dnf() {
 
 patch_alpine() {
     echo "Patching Alpine"
-    apk upgrade --no-cache -U
+    if [ -n "${skip_ssl}" ]; then
+        apk upgrade --ignore \
+            libssl3 libcrypto3 openssl openssl-dbg \
+            openssl-doc openssl-dev openssl-libs-static \
+            --no-cache -U
+    else
+        apk upgrade --no-cache -U
+    fi
 }
 
 if [ ! -f /etc/os-release ]; then
