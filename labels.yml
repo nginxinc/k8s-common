@@ -94,3 +94,6 @@
 - color: B52D2D
   description: Cherry pick this PR into a release branch
   name: needs cherry pick
+- color: A5F794
+  description: Pull requests/issues related to DevOps
+  name: devops
