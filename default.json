@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": true,
+  "automergeStrategy": "squash",
+  "commitBodyTable": true,
+  "configMigration": true,
   "extends": [
     ":dependencyDashboard",
     "group:monorepos",
@@ -8,16 +11,33 @@
     "replacements:all",
     "workarounds:all",
     "docker:enableMajor",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests",
+    ":gitSignOff"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**"
   ],
   "labels": [
     "dependencies"
   ],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "boto3"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    }
+  ],
   "postUpdateOptions": [
     "gomodTidy",
-    "gomodUpdateImportPaths"
+    "gomodUpdateImportPaths",
+    "npmDedupe"
   ],
   "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
   "pre-commit": {
     "enabled": true
   },
