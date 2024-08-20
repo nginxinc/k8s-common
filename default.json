@@ -5,17 +5,16 @@
   "commitBodyTable": true,
   "configMigration": true,
   "extends": [
-    ":dependencyDashboard",
-    "group:monorepos",
-    "group:recommended",
-    "replacements:all",
-    "workarounds:all",
+    "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
     ":gitSignOff"
   ],
   "ignorePaths": [
     "**/node_modules/**"
+  ],
+  "ignorePresets": [
+    ":ignoreModulesAndTests"
   ],
   "labels": [
     "dependencies"
@@ -41,5 +40,5 @@
   "pre-commit": {
     "enabled": true
   },
-  "rebaseWhen": "auto"
+  "rebaseWhen": "behind-base-branch"
 }
