@@ -1,0 +1,39 @@
+change:
+  - head-branch: ["^change/"]
+
+enhancement:
+  - head-branch: ["^feature/", "^feat/", "^enhancement/", "^enh/"]
+
+bug:
+  - head-branch: ["^fix/", "^bug/"]
+
+chore:
+  - head-branch: ["^chore/"]
+
+tech-debt:
+  - head-branch: ["^tech-debt/", "^techdebt/", "^debt/"]
+
+documentation:
+  - head-branch: ["^docs/", "^doc/"]
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
+
+dependencies:
+  - head-branch:
+      ["^deps/", "^dep/", "^dependabot/", "^renovate/", "pre-commit-ci-update-config"]
+  - changed-files:
+      - any-glob-to-any-file: ["go.mod", "go.sum"]
+
+tests:
+  - any:
+      - head-branch: ["^tests/", "^test/"]
+      - changed-files:
+          - any-glob-to-any-file: "tests/**/*"
+  - all:
+      - changed-files:
+          - all-globs-to-all-files: ["!tests/requirements.txt", "!tests/**/go.mod", "!tests/**/go.sum"]
+
+helm-chart:
+  - head-branch: ["^helm/", "^helm-chart/"]
+  - changed-files:
+      - any-glob-to-any-file: ["charts/**/*"]
