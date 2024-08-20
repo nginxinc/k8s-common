@@ -40,5 +40,19 @@
   "pre-commit": {
     "enabled": true
   },
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "regexManagers": [
+    {
+      "datasourceTemplate": "github-tags",
+      "description": "Update Github Action references in the Markdown files",
+      "fileMatch": [
+        "\\.md$"
+      ],
+      "matchStrings": [
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "versioningTemplate": "semver"
+    }
+  ]
 }
