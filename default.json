@@ -90,7 +90,8 @@
       "datasourceTemplate": "custom.nginx-plus",
       "description": "Update NGINX Plus version in Dockerfiles",
       "fileMatch": [
-        "(^|/)Dockerfile$"
+        "(^|/)Dockerfile$",
+        "(^|/)Dockerfile\\.[^/]*$"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\sNGINX_PLUS_VERSION=(?<currentValue>.+?)\\s"
