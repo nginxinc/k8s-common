@@ -4,6 +4,12 @@
   "automergeStrategy": "squash",
   "commitBodyTable": true,
   "configMigration": true,
+  "customDatasources": {
+    "nginx-plus": {
+      "defaultRegistryUrlTemplate": "https://docs.nginx.com/nginx/releases/",
+      "format": "html"
+    }
+  },
   "extends": [
     "config:recommended",
     "docker:enableMajor",
@@ -27,6 +33,12 @@
       ],
       "matchUpdateTypes": [
         "patch"
+      ]
+    },
+    {
+      "extractVersion": "#nginxplusrelease-\\d+-(?<version>)$",
+      "matchDatasources": [
+        "custom.nginx-plus"
       ]
     }
   ],
@@ -72,6 +84,16 @@
       "matchStrings": [
         "\\s+(?:[a-z]-)?version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
+      ]
+    },
+    {
+      "datasourceTemplate": "custom.nginx-plus",
+      "description": "Update NGINX Plus version in Dockerfiles",
+      "fileMatch": [
+        "(^|/)Dockerfile$"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\sNGINX_PLUS_VERSION=(?<currentValue>.+?)\\s"
       ]
     }
   ],
