@@ -78,6 +78,14 @@
       "matchDatasources": [
         "helm"
       ]
+    },
+    {
+      "addLabels": [
+        "github_actions"
+      ],
+      "matchManagers": [
+        "action"
+      ]
     }
   ],
   "postUpdateOptions": [
