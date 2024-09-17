@@ -26,7 +26,6 @@ jobs:
         with:
           manifest: labels.yml
           repository: |
-            nginxinc/kubernetes-ingress
             nginxinc/kic-test-containers
             nginxinc/nginx-ingress-helm-operator
             nginxinc/nginx-prometheus-exporter
