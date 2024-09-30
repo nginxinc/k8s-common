@@ -149,6 +149,18 @@
         "// renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: registryUrl=(?<registryUrl>.+?))?(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s.+?Version :?= \"(?<currentValue>.+?)\"\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    },
+    {
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "{{#if depName}}{{#if (containsString depName \"hashicorp/\")}}{{{replace \"hashicorp/\" \"hashicorp/packer-plugin-\" depName}}}{{else}}{{{depName}}}{{/if}}{{else}}hashicorp/packer{{/if}}",
+      "fileMatch": [
+        "\\.pkr\\.hcl"
+      ],
+      "matchStrings": [
+        "required_version[\\s]+=[\\s]+\"=?(?<currentValue>\\S*)\"",
+        "source[\\s]+=[\\s]+\"github.com/(?<depName>\\S*)\"[\\s]+version[\\s]+=[\\s]+\"(?<currentValue>\\S*)\"",
+        "version[\\s]+=[\\s]+\"(?<currentValue>\\S*)[\\s]+source[\\s]+=[\\s]+\"github.com/(?<depName>\\S*)\""
+      ]
     }
   ],
   "timezone": "America/Los_Angeles"
