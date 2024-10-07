@@ -16,7 +16,8 @@
     "helpers:pinGitHubActionDigests",
     ":gitSignOff",
     ":maintainLockFilesMonthly",
-    ":disableRateLimiting"
+    ":disableRateLimiting",
+    ":semanticCommitsDisabled"
   ],
   "ignorePaths": [
     "**/node_modules/**"
