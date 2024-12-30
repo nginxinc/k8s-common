@@ -27,12 +27,12 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.21.4
+    rev: v8.22.1
     hooks:
       - id: gitleaks
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.16.0
+    rev: v0.17.0
     hooks:
       - id: markdownlint-cli2
 
