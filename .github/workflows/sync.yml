@@ -77,14 +77,14 @@ jobs:
           secret-names: nginx-bot-nic-sync-jobs-app-client-id,nginx-bot-nic-sync-jobs-app-private-key
           env-names: APP_ID,APP_PRIVATE_KEY
 
-      # - name: Mint token for nginx org
-      #   id: nginx-token
-      #   uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-      #   with:
-      #     client-id: ${{ env.APP_ID }}
-      #     private-key: ${{ env.APP_PRIVATE_KEY }}
-      #     owner: nginx
-      #     repositories: winget-pkgs
+      - name: Mint token for nginx org
+        id: nginx-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ env.APP_ID }}
+          private-key: ${{ env.APP_PRIVATE_KEY }}
+          owner: nginx
+          repositories: winget-pkgs
 
       - name: Mint token for nginxinc org
         id: nginxinc-token
@@ -115,10 +115,10 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.bot-token.outputs.token }}
 
-      # - name: Sync nginx/winget-pkgs
-      #   run: gh repo sync nginx/winget-pkgs
-      #   env:
-      #     GH_TOKEN: ${{ steps.nginx-token.outputs.token }}
+      - name: Sync nginx/winget-pkgs
+        run: gh repo sync nginx/winget-pkgs
+        env:
+          GH_TOKEN: ${{ steps.nginx-token.outputs.token }}
 
       - name: Sync nginxinc/kubernetes-json-schema
         run: gh repo sync nginxinc/kubernetes-json-schema
