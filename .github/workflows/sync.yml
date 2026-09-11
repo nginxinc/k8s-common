@@ -37,10 +37,16 @@ jobs:
         id: nginx-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ env.APP_ID }}
+          client-id: ${{ env.APP_ID }}
           private-key: ${{ env.APP_PRIVATE_KEY }}
           owner: nginx
           repositories: nginx-prometheus-exporter,nginx-plus-go-client,nginx-asg-sync,telemetry-exporter,kic-test-containers,nginx-ingress-helm-operator
+
+      # Drop the long-lived App creds before running any third-party action.
+      - name: Clear App creds from env
+        run: |
+          echo "APP_ID=" >> "$GITHUB_ENV"
+          echo "APP_PRIVATE_KEY=" >> "$GITHUB_ENV"
 
       - name: Sync Labels
         uses: micnncim/action-label-syncer@3abd5ab72fda571e69fffd97bd4e0033dd5f495c # v1.3.0
@@ -71,20 +77,20 @@ jobs:
           secret-names: nginx-bot-nic-sync-jobs-app-client-id,nginx-bot-nic-sync-jobs-app-private-key
           env-names: APP_ID,APP_PRIVATE_KEY
 
-      - name: Mint token for nginx org
-        id: nginx-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ env.APP_ID }}
-          private-key: ${{ env.APP_PRIVATE_KEY }}
-          owner: nginx
-          repositories: winget-pkgs
+      # - name: Mint token for nginx org
+      #   id: nginx-token
+      #   uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+      #   with:
+      #     client-id: ${{ env.APP_ID }}
+      #     private-key: ${{ env.APP_PRIVATE_KEY }}
+      #     owner: nginx
+      #     repositories: winget-pkgs
 
       - name: Mint token for nginxinc org
         id: nginxinc-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ env.APP_ID }}
+          client-id: ${{ env.APP_ID }}
           private-key: ${{ env.APP_PRIVATE_KEY }}
           owner: nginxinc
           repositories: kubernetes-json-schema
@@ -93,20 +99,26 @@ jobs:
         id: bot-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ env.APP_ID }}
+          client-id: ${{ env.APP_ID }}
           private-key: ${{ env.APP_PRIVATE_KEY }}
           owner: nginx-bot
           repositories: certified-operators
+
+      # Drop the long-lived App creds now that all installation tokens are minted.
+      - name: Clear App creds from env
+        run: |
+          echo "APP_ID=" >> "$GITHUB_ENV"
+          echo "APP_PRIVATE_KEY=" >> "$GITHUB_ENV"
 
       - name: Sync nginx-bot/certified-operators
         run: gh repo sync nginx-bot/certified-operators
         env:
           GH_TOKEN: ${{ steps.bot-token.outputs.token }}
 
-      - name: Sync nginx/winget-pkgs
-        run: gh repo sync nginx/winget-pkgs
-        env:
-          GH_TOKEN: ${{ steps.nginx-token.outputs.token }}
+      # - name: Sync nginx/winget-pkgs
+      #   run: gh repo sync nginx/winget-pkgs
+      #   env:
+      #     GH_TOKEN: ${{ steps.nginx-token.outputs.token }}
 
       - name: Sync nginxinc/kubernetes-json-schema
         run: gh repo sync nginxinc/kubernetes-json-schema
